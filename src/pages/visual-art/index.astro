@@ -1,0 +1,62 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+const sections = [
+  {
+    title: 'Paintings',
+    href: '/visual-art/paintings',
+    description: 'Mixed-media and oil paintings exploring psychological and spiritual themes.',
+    image: '/images/paintings/Chrysalis.jpg',
+  },
+  {
+    title: 'Collages & Mixed Media',
+    href: '/visual-art/collages',
+    description: 'Collages combining image, color, and text to explore the layers of memory and meaning.',
+    image: '/images/collages/webAPrivateMythology.jpg',
+  },
+  {
+    title: 'Handmade Journals & Books',
+    href: '/visual-art/journals',
+    description: 'Hand-crafted artist books and journals in the "Moments" series.',
+    image: '/images/journals/journals1.jpg',
+  },
+  {
+    title: 'Art Talk',
+    href: '/visual-art/art-talk',
+    description: 'Articles on pastel technique, color theory, and art materials.',
+    image: '/images/art-talk/simple-effective.jpg',
+  },
+];
+---
+<SiteLayout
+  title="Visual Art"
+  description="Visual art by HL Gaydos — paintings, collages, handmade journals, and art technique articles."
+>
+
+  <div class="max-w-5xl mx-auto px-4 py-14">
+    <h1 class="font-heading text-4xl font-light text-site-text mb-2">Visual Art</h1>
+    <div class="w-16 h-0.5 bg-accent mb-10"></div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {sections.map(s => (
+        <a href={s.href} class="group block bg-white border border-light-bg rounded overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="overflow-hidden h-52">
+            <img
+              src={s.image}
+              alt={s.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <h2 class="font-heading text-xl font-medium text-site-text group-hover:text-accent transition-colors mb-2">
+              {s.title}
+            </h2>
+            <p class="text-sm text-site-text/70 leading-relaxed">{s.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+</SiteLayout>

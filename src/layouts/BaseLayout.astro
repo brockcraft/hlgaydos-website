@@ -1,0 +1,51 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+const {
+  title = 'HL Gaydos',
+  description = 'Author and visual artist exploring the human experience through writing and art.',
+  image = '/images/books/Gaydos-Cover-Project-front-jpg.jpg',
+} = Astro.props;
+const siteTitle = title === 'HL Gaydos' ? title : `${title} — HL Gaydos`;
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{siteTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={Astro.url} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={siteTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Roboto+Slab:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="icon" type="image/jpeg" href="/images/author/cropped-Creative-Journey-adj-32x32.jpg" />
+</head>
+<body class="bg-site-bg text-site-text font-body antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-accent focus:text-white focus:px-4 focus:py-2 focus:rounded">
+    Skip to content
+  </a>
+  <slot name="header">
+    <!-- default header injected by pages that import BaseLayout directly -->
+  </slot>
+  <main id="main">
+    <slot />
+  </main>
+  <slot name="footer" />
+</body>
+</html>

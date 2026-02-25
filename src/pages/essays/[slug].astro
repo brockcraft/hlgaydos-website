@@ -1,0 +1,46 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const essays = await getCollection('essays');
+  return essays.map(essay => ({
+    params: { slug: essay.slug },
+    props: { essay },
+  }));
+}
+
+const { essay } = Astro.props;
+const { Content } = await essay.render();
+---
+<SiteLayout
+  title={essay.data.title}
+  description={essay.data.description}
+  image={essay.data.image}
+>
+
+  <article class="max-w-3xl mx-auto px-4 py-14">
+    <header class="mb-10">
+      <a href="/essays" class="text-sm text-accent hover:underline font-medium mb-4 inline-block">&larr; All Essays</a>
+      <h1 class="font-heading text-4xl font-light text-site-text mb-2">{essay.data.title}</h1>
+      <div class="w-16 h-0.5 bg-accent mt-4"></div>
+    </header>
+
+    {essay.data.image && (
+      <img
+        src={essay.data.image}
+        alt={essay.data.imageAlt ?? essay.data.title}
+        class="w-full max-h-80 object-cover rounded shadow-md mb-10"
+        loading="eager"
+      />
+    )}
+
+    <div class="prose prose-stone max-w-none
+      prose-headings:font-heading prose-headings:font-light
+      prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+      prose-img:rounded prose-img:shadow-sm">
+      <Content />
+    </div>
+  </article>
+
+</SiteLayout>

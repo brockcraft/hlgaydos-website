@@ -1,0 +1,53 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+// To add or remove a piece, edit this array.
+const collages = [
+  { src: '/images/collages/webAPrivateMythology.jpg',          title: 'A Private Mythology' },
+  { src: '/images/collages/webASliceofTimeandJoy.jpg',         title: 'A Slice of Time and Joy' },
+  { src: '/images/collages/webBetweenTwoWorlds.jpg',           title: 'Between Two Worlds' },
+  { src: '/images/collages/webFlowerChildforaNewMillenium.jpg', title: 'Flower Child for a New Millennium' },
+  { src: '/images/collages/webGuiltyPleasures.jpg',            title: 'Guilty Pleasures' },
+  { src: '/images/collages/webJustBetweenUs.jpg',              title: 'Just Between Us' },
+  { src: '/images/collages/webLandlockedViewoftheSea.jpg',     title: 'Landlocked View of the Sea' },
+  { src: '/images/collages/webLeaningIntoHope.jpg',            title: 'Leaning Into Hope' },
+  { src: '/images/collages/webNocturne.jpg',                   title: 'Nocturne' },
+  { src: '/images/collages/webOntheLevel.jpg',                 title: 'On the Level' },
+  { src: '/images/collages/webSafeNestBeforeFlying.jpg',       title: 'Safe Nest Before Flying' },
+  { src: '/images/collages/webSoFarAway.jpg',                  title: 'So Far Away' },
+  { src: '/images/collages/webTrueGrit.jpg',                   title: 'True Grit' },
+  { src: '/images/collages/come-saturday-morning.jpg',         title: 'Come Saturday Morning' },
+  { src: '/images/collages/paradigmshift.jpg',                 title: 'Paradigm Shift' },
+  { src: '/images/paintings/MixedMessagesweb.jpg',             title: 'Mixed Messages' },
+];
+---
+<SiteLayout
+  title="Collages & Mixed Media"
+  description="Collages and mixed media artwork by HL Gaydos."
+>
+
+  <div class="max-w-6xl mx-auto px-4 py-14">
+    <div class="flex items-center gap-4 mb-2">
+      <a href="/visual-art" class="text-sm text-accent hover:underline">&larr; Visual Art</a>
+    </div>
+    <h1 class="font-heading text-4xl font-light text-site-text mb-2">Collages &amp; Mixed Media</h1>
+    <div class="w-16 h-0.5 bg-accent mb-10"></div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      {collages.map(p => (
+        <figure class="group overflow-hidden rounded shadow-sm hover:shadow-md transition-shadow bg-white">
+          <img
+            src={p.src}
+            alt={p.title}
+            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+          <figcaption class="px-2 py-1.5 text-xs text-site-text/70 text-center font-body">
+            {p.title}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+
+</SiteLayout>

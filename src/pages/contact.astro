@@ -1,0 +1,46 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+<SiteLayout
+  title="Contact"
+  description="Contact HL Gaydos — commissions, teaching, purchasing, and more."
+>
+
+  <div class="max-w-2xl mx-auto px-4 py-14">
+
+    <h1 class="font-heading text-4xl font-light text-site-text mb-2">Contact</h1>
+    <div class="w-16 h-0.5 bg-accent mb-8"></div>
+
+    <div class="grid md:grid-cols-2 gap-10 mb-10">
+      <div>
+        <p class="text-site-text/80 leading-relaxed mb-4">
+          I am happy to answer any questions or comments regarding commissions,
+          teaching, purchasing, and more. Please reach out and I will respond as
+          soon as I can.
+        </p>
+        <a href="mailto:honeylea@comcast.net"
+           class="inline-flex items-center gap-2 text-accent font-medium hover:underline">
+          ✉ honeylea@comcast.net
+        </a>
+      </div>
+      <img
+        src="/images/author/Gaydos-author-photo.jpg"
+        alt="HL Gaydos"
+        class="w-40 h-40 object-cover rounded-full shadow-md mx-auto md:mx-0"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Simple mailto-based form fallback note -->
+    <div class="bg-light-bg rounded p-6 text-sm text-site-text/70">
+      <p>
+        For a quick reply, email directly at
+        <a href="mailto:honeylea@comcast.net" class="text-accent hover:underline font-medium">
+          honeylea@comcast.net
+        </a>.
+      </p>
+    </div>
+
+  </div>
+
+</SiteLayout>

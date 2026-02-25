@@ -1,0 +1,81 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+// To add or remove a painting, edit this array.
+// 'src' is relative to /public, 'title' is the display name.
+const paintings = [
+  { src: '/images/paintings/Chrysalis.jpg',                      title: 'Chrysalis' },
+  { src: '/images/paintings/In-Search-of-Numinous.jpg',          title: 'In Search of the Numinous' },
+  { src: '/images/paintings/Wild-Geese.jpg',                     title: 'Wild Geese' },
+  { src: '/images/paintings/The-Grace-of-an-Ordinary-Day.jpg',   title: 'The Grace of an Ordinary Day' },
+  { src: '/images/paintings/Memories-Have-Open-Spaces.jpg',      title: 'Memories Have Open Spaces' },
+  { src: '/images/paintings/Listening-Alone.jpg',                title: 'Listening Alone' },
+  { src: '/images/paintings/Grace.jpg',                          title: 'Grace' },
+  { src: '/images/paintings/The-Gift.jpg',                       title: 'The Gift' },
+  { src: '/images/paintings/TheCall.jpg',                        title: 'The Call' },
+  { src: '/images/paintings/TheQuest.jpg',                       title: 'The Quest' },
+  { src: '/images/paintings/TheReturn.jpg',                      title: 'The Return' },
+  { src: '/images/paintings/TheDarkNight.jpg',                   title: 'The Dark Night' },
+  { src: '/images/paintings/The-Center-of-Time.jpg',             title: 'The Center of Time' },
+  { src: '/images/paintings/The-enlightenment-of-eve.jpeg',      title: 'The Enlightenment of Eve' },
+  { src: '/images/paintings/In-Praise-of-Memory.jpg',            title: 'In Praise of Memory' },
+  { src: '/images/paintings/In-the-Dark.jpg',                    title: 'In the Dark' },
+  { src: '/images/paintings/LeaningTowardmyTrueNorth.jpg',       title: 'Leaning Toward My True North' },
+  { src: '/images/paintings/Leaving-Off.jpg',                    title: 'Leaving Off' },
+  { src: '/images/paintings/Lost-in-Thought.jpg',                title: 'Lost in Thought' },
+  { src: '/images/paintings/MusicoftheSpheres.jpg',              title: 'Music of the Spheres' },
+  { src: '/images/paintings/NeitherHereNorThere.jpg',            title: 'Neither Here Nor There' },
+  { src: '/images/paintings/Queen-of-Heaven.jpg',                title: 'Queen of Heaven' },
+  { src: '/images/paintings/RubyArrangingHerHairentry.jpg',      title: 'Ruby Arranging Her Hair' },
+  { src: '/images/paintings/Schrodinger27sCat.jpg',              title: "Schrödinger's Cat" },
+  { src: '/images/paintings/Shattered.jpg',                      title: 'Shattered' },
+  { src: '/images/paintings/Spring1920.jpg',                     title: 'Spring' },
+  { src: '/images/paintings/StringTheory.jpg',                   title: 'String Theory' },
+  { src: '/images/paintings/Synapse.jpg',                        title: 'Synapse' },
+  { src: '/images/paintings/SystemsTheory.jpg',                  title: 'Systems Theory' },
+  { src: '/images/paintings/TakeFiveweb.jpg',                    title: 'Take Five' },
+  { src: '/images/paintings/AngleofReposeiphone.jpg',            title: 'Angle of Repose' },
+  { src: '/images/paintings/BrokenSymmetry.jpg',                 title: 'Broken Symmetry' },
+  { src: '/images/paintings/ButNotForMe7-14-2019.jpg',           title: 'But Not for Me' },
+  { src: '/images/paintings/Creative-Journey-low-res.jpg',       title: 'Creative Journey' },
+  { src: '/images/paintings/Day-of-the-Dead.jpg',                title: 'Day of the Dead' },
+  { src: '/images/paintings/Desert.jpg',                         title: 'Desert' },
+  { src: '/images/paintings/GaydosH1920_Gratititude.jpg',        title: 'Gratitude' },
+  { src: '/images/paintings/ICanSeeClearlyNow.jpg',              title: 'I Can See Clearly Now' },
+  { src: '/images/paintings/IHeardItFromTheWindSold.jpg',        title: 'I Heard It from the Wind (Sold)' },
+  { src: '/images/paintings/JustyouandMe.jpg',                   title: 'Just You and Me' },
+  { src: '/images/paintings/Out-ofSugar.jpg',                    title: 'Out of Sugar' },
+  { src: '/images/paintings/Unfinished.jpg',                     title: 'Unfinished' },
+  { src: '/images/paintings/YouveDoneEnough.jpg',                title: "You've Done Enough" },
+];
+---
+<SiteLayout
+  title="Paintings"
+  description="Paintings by HL Gaydos — mixed media and oil paintings exploring psychological and spiritual themes."
+>
+
+  <div class="max-w-6xl mx-auto px-4 py-14">
+    <div class="flex items-center gap-4 mb-2">
+      <a href="/visual-art" class="text-sm text-accent hover:underline">&larr; Visual Art</a>
+    </div>
+    <h1 class="font-heading text-4xl font-light text-site-text mb-2">Paintings</h1>
+    <div class="w-16 h-0.5 bg-accent mb-10"></div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      {paintings.map(p => (
+        <figure class="group overflow-hidden rounded shadow-sm hover:shadow-md transition-shadow bg-white">
+          <img
+            src={p.src}
+            alt={p.title}
+            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+          <figcaption class="px-2 py-1.5 text-xs text-site-text/70 text-center font-body">
+            {p.title}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+
+</SiteLayout>

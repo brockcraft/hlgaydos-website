@@ -1,0 +1,34 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { getCollection } from 'astro:content';
+
+const poems = await getCollection('poetry');
+---
+<SiteLayout
+  title="Poetry"
+  description="Poetry by HL Gaydos."
+>
+
+  <div class="max-w-3xl mx-auto px-4 py-14">
+    <h1 class="font-heading text-4xl font-light text-site-text mb-2">Poetry</h1>
+    <div class="w-16 h-0.5 bg-accent mb-10"></div>
+
+    <div class="space-y-16">
+      {poems.map(async poem => {
+        const { Content } = await poem.render();
+        return (
+          <article id={poem.slug}>
+            <h2 class="font-heading text-2xl font-light text-site-text mb-6">{poem.data.title}</h2>
+            <div class="prose prose-stone max-w-none
+              prose-p:whitespace-pre-line prose-p:leading-loose
+              prose-headings:font-heading">
+              <Content />
+            </div>
+            <div class="mt-6 border-b border-light-bg"></div>
+          </article>
+        );
+      })}
+    </div>
+  </div>
+
+</SiteLayout>

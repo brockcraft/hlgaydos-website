@@ -1,0 +1,69 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+const journals = [
+  {
+    src: '/images/journals/journals-winter.jpg',
+    title: 'Winter',
+    description: 'A lapbook folio in a clean, contemporary style.',
+  },
+  {
+    src: '/images/journals/journals-texture.jpg',
+    title: 'Textures',
+    description: 'A document folio journal with a &ldquo;grungy&rdquo; vibe.',
+  },
+  {
+    src: '/images/journals/journals-sassy.jpg',
+    title: 'Sassy',
+    description: 'A ring-bound book with a decidedly vintage flavor.',
+  },
+  {
+    src: '/images/journals/journals1.jpg',
+    title: 'Handmade Journals',
+    description: 'The &ldquo;Moments&rdquo; series of handcrafted artist books.',
+  },
+];
+---
+<SiteLayout
+  title="Handmade Journals & Books"
+  description="Handmade artist journals and books by HL Gaydos — the Moments series."
+>
+
+  <div class="max-w-5xl mx-auto px-4 py-14">
+    <div class="flex items-center gap-4 mb-2">
+      <a href="/visual-art" class="text-sm text-accent hover:underline">&larr; Visual Art</a>
+    </div>
+    <h1 class="font-heading text-4xl font-light text-site-text mb-2">Handmade Journals &amp; Books</h1>
+    <div class="w-16 h-0.5 bg-accent mb-4"></div>
+
+    <p class="text-site-text/70 leading-relaxed mb-10 max-w-2xl">
+      The <em>Moments</em> series — handcrafted artist books and journals, each with its
+      own distinct personality and materials. Available for purchase; contact for details.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {journals.map(j => (
+        <figure class="bg-white border border-light-bg rounded overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <img
+            src={j.src}
+            alt={j.title}
+            class="w-full h-56 object-cover"
+            loading="lazy"
+          />
+          <figcaption class="p-5">
+            <h2 class="font-heading text-lg font-medium text-site-text mb-1">{j.title}</h2>
+            <p class="text-sm text-site-text/70" set:html={j.description} />
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <div class="mt-12 p-6 bg-light-bg rounded">
+      <p class="text-site-text/80 mb-2">
+        Interested in purchasing a handmade journal or commissioning a custom piece?
+      </p>
+      <a href="/contact" class="text-accent font-medium hover:underline">Get in touch &rarr;</a>
+    </div>
+  </div>
+
+</SiteLayout>

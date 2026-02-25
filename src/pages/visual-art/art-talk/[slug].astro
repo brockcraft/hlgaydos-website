@@ -1,0 +1,46 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('art-talk');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+<SiteLayout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.image}
+>
+
+  <article class="max-w-3xl mx-auto px-4 py-14">
+    <header class="mb-10">
+      <a href="/visual-art/art-talk" class="text-sm text-accent hover:underline font-medium mb-4 inline-block">&larr; Art Talk</a>
+      <h1 class="font-heading text-4xl font-light text-site-text mb-2">{post.data.title}</h1>
+      <div class="w-16 h-0.5 bg-accent mt-4"></div>
+    </header>
+
+    {post.data.image && (
+      <img
+        src={post.data.image}
+        alt={post.data.imageAlt ?? post.data.title}
+        class="w-full max-h-80 object-cover rounded shadow-md mb-10"
+        loading="eager"
+      />
+    )}
+
+    <div class="prose prose-stone max-w-none
+      prose-headings:font-heading prose-headings:font-light
+      prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+      prose-img:rounded prose-img:shadow-sm">
+      <Content />
+    </div>
+  </article>
+
+</SiteLayout>
