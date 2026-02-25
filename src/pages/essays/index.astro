@@ -1,0 +1,49 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getCollection } from 'astro:content';
+
+const essays = (await getCollection('essays')).sort((a, b) =>
+  (b.data.date ?? '').localeCompare(a.data.date ?? '')
+);
+---
+<SiteLayout
+  title="Essays"
+  description="Essays by HL Gaydos — reflections on art, memory, beauty, and the ordinary extraordinary."
+>
+
+  <div class="max-w-4xl mx-auto px-4 py-14">
+    <h1 class="font-heading text-4xl font-light text-site-text mb-2">Essays</h1>
+    <div class="w-16 h-0.5 bg-accent mb-10"></div>
+
+    <div class="space-y-8">
+      {essays.map(essay => (
+        <article class="group grid md:grid-cols-4 gap-6 items-start">
+          {essay.data.image && (
+            <a href={`/essays/${essay.slug}`} class="md:col-span-1 block overflow-hidden rounded shadow-sm">
+              <img
+                src={essay.data.image}
+                alt={essay.data.imageAlt ?? essay.data.title}
+                class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </a>
+          )}
+          <div class={essay.data.image ? 'md:col-span-3' : 'md:col-span-4'}>
+            <h2 class="font-heading text-xl font-medium mb-2">
+              <a href={`/essays/${essay.slug}`} class="text-site-text hover:text-accent transition-colors">
+                {essay.data.title}
+              </a>
+            </h2>
+            {essay.data.description && (
+              <p class="text-site-text/70 text-sm leading-relaxed">{essay.data.description}</p>
+            )}
+            <a href={`/essays/${essay.slug}`} class="inline-block mt-3 text-sm text-accent hover:underline font-medium">
+              Read essay &rarr;
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+</SiteLayout>

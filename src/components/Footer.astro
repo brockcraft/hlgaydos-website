@@ -1,0 +1,40 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="bg-dark-bg text-white mt-16">
+  <div class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <div>
+      <h3 class="font-heading text-lg font-medium mb-3">HL Gaydos</h3>
+      <p class="text-sm text-white/70 leading-relaxed">
+        Author and visual artist exploring the human experience through writing and art.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading text-sm font-semibold uppercase tracking-wider text-accent2 mb-3">Writing</h3>
+      <ul class="space-y-1.5 text-sm">
+        <li><a href="/books"  class="text-white/70 hover:text-white transition-colors">Books</a></li>
+        <li><a href="/essays" class="text-white/70 hover:text-white transition-colors">Essays</a></li>
+        <li><a href="/poetry" class="text-white/70 hover:text-white transition-colors">Poetry</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-heading text-sm font-semibold uppercase tracking-wider text-accent2 mb-3">Visual Art</h3>
+      <ul class="space-y-1.5 text-sm">
+        <li><a href="/visual-art/paintings"  class="text-white/70 hover:text-white transition-colors">Paintings</a></li>
+        <li><a href="/visual-art/collages"   class="text-white/70 hover:text-white transition-colors">Collages & Mixed Media</a></li>
+        <li><a href="/visual-art/journals"   class="text-white/70 hover:text-white transition-colors">Handmade Journals</a></li>
+        <li><a href="/visual-art/art-talk"   class="text-white/70 hover:text-white transition-colors">Art Talk</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/50">
+      <span>&copy; {year} HL Gaydos. All rights reserved.</span>
+      <a href="mailto:honeylea@comcast.net" class="hover:text-white/80 transition-colors">honeylea@comcast.net</a>
+    </div>
+  </div>
+</footer>

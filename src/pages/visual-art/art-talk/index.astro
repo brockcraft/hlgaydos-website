@@ -1,0 +1,55 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('art-talk')).sort((a, b) =>
+  (b.data.date ?? '').localeCompare(a.data.date ?? '')
+);
+---
+<SiteLayout
+  title="Art Talk"
+  description="Articles on pastel technique, color theory, and art materials by HL Gaydos."
+>
+
+  <div class="max-w-4xl mx-auto px-4 py-14">
+    <div class="flex items-center gap-4 mb-2">
+      <a href="/visual-art" class="text-sm text-accent hover:underline">&larr; Visual Art</a>
+    </div>
+    <h1 class="font-heading text-4xl font-light text-site-text mb-2">Art Talk</h1>
+    <div class="w-16 h-0.5 bg-accent mb-4"></div>
+    <p class="text-site-text/70 leading-relaxed mb-10">
+      Articles on pastel technique, color theory, and art materials.
+    </p>
+
+    <div class="space-y-8">
+      {posts.map(post => (
+        <article class="group grid md:grid-cols-4 gap-6 items-start">
+          {post.data.image && (
+            <a href={`/visual-art/art-talk/${post.slug}`} class="md:col-span-1 block overflow-hidden rounded shadow-sm">
+              <img
+                src={post.data.image}
+                alt={post.data.imageAlt ?? post.data.title}
+                class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </a>
+          )}
+          <div class={post.data.image ? 'md:col-span-3' : 'md:col-span-4'}>
+            <h2 class="font-heading text-xl font-medium mb-2">
+              <a href={`/visual-art/art-talk/${post.slug}`} class="text-site-text hover:text-accent transition-colors">
+                {post.data.title}
+              </a>
+            </h2>
+            {post.data.description && (
+              <p class="text-site-text/70 text-sm leading-relaxed">{post.data.description}</p>
+            )}
+            <a href={`/visual-art/art-talk/${post.slug}`} class="inline-block mt-3 text-sm text-accent hover:underline font-medium">
+              Read article &rarr;
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+</SiteLayout>

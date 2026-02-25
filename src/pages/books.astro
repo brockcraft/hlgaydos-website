@@ -1,0 +1,129 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+
+const reviews = [
+  {
+    text: '"…eloquent and warm…"',
+  },
+  {
+    text: '"A thoughtful, winding reflection that gently challenges readers to recognize the patterns of their own lives."',
+    source: 'Kirkus Reviews',
+  },
+  {
+    text: '"…a compelling and straightforward voice…this book is essential reading for those interested in spirituality, self-transformation, and art."',
+  },
+  {
+    text: '"…a master at evoking time and place."',
+    source: 'Erica Ball, Independent Book Review',
+  },
+  {
+    text: '"Through her vivid prose…"',
+  },
+];
+---
+<SiteLayout
+  title="Books"
+  description="Books by HL Gaydos — spiritual memoir, creative nonfiction."
+  image="/images/books/Gaydos-Cover-Project-front-jpg.jpg"
+>
+
+  <div class="max-w-5xl mx-auto px-4 py-14">
+
+    <h1 class="font-heading text-4xl font-light text-site-text mb-2">Books</h1>
+    <div class="w-16 h-0.5 bg-accent mb-10"></div>
+
+    <!-- Book: A Creative Journey -->
+    <div class="grid md:grid-cols-5 gap-10 mb-16">
+      <div class="md:col-span-2 flex justify-center">
+        <img
+          src="/images/books/Gaydos-Cover-Project-front-jpg.jpg"
+          alt="Book cover — A Creative Journey"
+          class="max-w-xs w-full shadow-2xl rounded"
+          loading="eager"
+        />
+      </div>
+
+      <div class="md:col-span-3">
+        <h2 class="font-heading text-3xl font-light text-site-text mb-2">
+          Patterns: The Mystical Journey of an Ordinary Life
+        </h2>
+        <p class="text-sm text-accent2 italic mb-4">Spiritual Memoir</p>
+
+        <p class="text-lg text-site-text/80 leading-relaxed mb-6">
+          Readers with a sense of the Infinite who have searched for faith without doubt
+          will be inspired by this spiritual memoir of grace and gratitude.
+        </p>
+
+        <!-- Where to buy -->
+        <h3 class="font-heading text-sm font-semibold uppercase tracking-wider text-accent2 mb-4">Where to Buy</h3>
+        <div class="flex flex-wrap gap-4 mb-8">
+          <a
+            href="https://www.amazon.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block hover:opacity-80 transition-opacity"
+          >
+            <img src="/images/misc/amazonblack.png" alt="Buy on Amazon" class="h-10" />
+          </a>
+          <a
+            href="https://atmospherepress.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block hover:opacity-80 transition-opacity"
+          >
+            <img src="/images/misc/atmosphereblack.png" alt="Buy from Atmosphere Press" class="h-10" />
+          </a>
+          <a
+            href="https://www.amazon.com/kindle"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block hover:opacity-80 transition-opacity"
+          >
+            <img src="/images/misc/kindle.png" alt="Buy for Kindle" class="h-10" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="border-light-bg mb-12" />
+
+    <!-- Reviews -->
+    <div>
+      <h2 class="font-heading text-2xl font-light text-site-text mb-8">Reviews</h2>
+      <div class="grid md:grid-cols-2 gap-5">
+        {reviews.map(r => (
+          <blockquote class="bg-light-bg rounded p-6">
+            <p class="text-site-text/90 italic leading-relaxed">{r.text}</p>
+            {r.source && (
+              <footer class="mt-3 text-sm font-medium text-accent">— {r.source}</footer>
+            )}
+          </blockquote>
+        ))}
+      </div>
+    </div>
+
+    <!-- Second book if present -->
+    <div class="mt-16">
+      <div class="grid md:grid-cols-5 gap-10">
+        <div class="md:col-span-2 flex justify-center">
+          <img
+            src="/images/books/November-2025-Front.jpg"
+            alt="New publication — November 2025"
+            class="max-w-xs w-full shadow-xl rounded"
+            loading="lazy"
+          />
+        </div>
+        <div class="md:col-span-3">
+          <h2 class="font-heading text-3xl font-light text-site-text mb-4">New Publication</h2>
+          <p class="text-site-text/80 leading-relaxed mb-6">
+            <!-- Add description here when available -->
+            Coming soon — details to be announced.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</SiteLayout>

@@ -1,0 +1,80 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+<SiteLayout
+  title="About"
+  description="About HL Gaydos — author and visual artist."
+>
+
+  <div class="max-w-4xl mx-auto px-4 py-14">
+
+    <h1 class="font-heading text-4xl font-light text-site-text mb-2">About</h1>
+    <div class="w-16 h-0.5 bg-accent mb-10"></div>
+
+    <div class="grid md:grid-cols-3 gap-10 mb-12">
+      <div class="flex flex-col gap-4">
+        <img
+          src="/images/author/Gaydos-author-photo.jpg"
+          alt="HL Gaydos"
+          class="w-full rounded shadow-md"
+          loading="lazy"
+        />
+        <img
+          src="/images/author/Gaydos-author-photo2.jpg"
+          alt="HL Gaydos"
+          class="w-full rounded shadow-md"
+          loading="lazy"
+        />
+      </div>
+      <div class="md:col-span-2 prose prose-stone max-w-none">
+        <p class="text-lg leading-relaxed text-site-text/90 mb-6">
+          My creative work as both writer and visual artist focuses on the experience of
+          being human in a complex world filled with uncertainty and possibility.
+          Exploring paradoxes, ambiguities, and the hidden psychological dimensions of
+          ordinary experience drive my work. Knowing just how much to express through
+          words or images is always the challenge. I want to say enough to elicit an
+          emotional and thoughtful response while leaving enough room for readers or
+          viewers to fill in the open spaces in my compositions with their own
+          experiences. Though it may seem that writing and making art are quite
+          different, to me they are synergistic — each informs the other. Whether I am
+          writing or making art, metaphor is my principal tool and beauty is my aim.
+        </p>
+
+        <hr class="border-light-bg my-6" />
+
+        <p class="leading-relaxed text-site-text/80 mb-6">
+          <strong>H. L. Gaydos</strong> is a writer, visual artist, and professional
+          nurse specializing in mental health. Combining all these interests, she
+          developed an innovative research approach using visual art to explore
+          self-defining memories, earning a PhD in Interdisciplinary Studies. In her
+          career as a professor of nursing, she promoted the use of the arts in health
+          care and advocated a holistic approach to care.
+        </p>
+        <p class="leading-relaxed text-site-text/80 mb-6">
+          Her emotionally evocative artwork has been sold for many years through
+          galleries and exhibitions. Her writing includes scholarly publications, essays
+          and poetry, and a spiritual memoir, <em>Patterns: The Mystical Journey of an
+          Ordinary Life</em>.
+        </p>
+        <p class="leading-relaxed text-site-text/80 mb-6">
+          Now retired from academia, she continues to pursue interdisciplinary study of
+          the intersections among psychology, mythology, spirituality, creativity, and
+          the history and philosophy of science. She lives in Manitou Springs, Colorado,
+          where she writes and makes art in her <em>High Country Studio</em>.
+        </p>
+
+        <div class="mt-8 p-6 bg-light-bg rounded">
+          <h2 class="font-heading text-xl font-medium text-site-text mb-3">Contact</h2>
+          <p class="text-site-text/80 mb-2">
+            I am happy to answer any questions or comments regarding commissions,
+            teaching, purchasing, and more.
+          </p>
+          <a href="/contact" class="text-accent font-medium hover:underline">Send a message &rarr;</a>
+          <span class="mx-3 text-site-text/30">or</span>
+          <a href="mailto:honeylea@comcast.net" class="text-accent font-medium hover:underline">honeylea@comcast.net</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</SiteLayout>
