@@ -1,0 +1,11 @@
+Sitemap: https://hlgaydos.com/sitemap.xml
+Sitemap: https://hlgaydos.com/sitemap.rss
+
+# START YOAST BLOCK
+# ---------------------------
+User-agent: *
+Disallow:
+
+Sitemap: https://hlgaydos.com/sitemap_index.xml
+# ---------------------------
+# END YOAST BLOCK
